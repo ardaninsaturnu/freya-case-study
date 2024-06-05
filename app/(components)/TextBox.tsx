@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextBox : ({ message, title, time, sender }: { message:string, title?:string | null, sender?:string }) => JSX.Element = ({ message, title, time, sender }) => {
+const TextBox : ({ message, title, time, sender }: { message:string, title?:string | null, sender?:string, time?:string }) => JSX.Element = ({ message, title, time, sender }) => {
   return (
     <div className={`flex ${ sender === 'bot' ? 'justify-start' : 'justify-end' }`}>
       <div className="bg-white rounded-[10px] p-2.5 mb-5 w-fit max-w-[380px]">

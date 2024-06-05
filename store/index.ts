@@ -17,7 +17,7 @@ interface Message {
   title: string,
   message: string,
   sender: string,
-  time: Date
+  time: string
 }
 
 interface State {
@@ -26,16 +26,19 @@ interface State {
   message: Message;
   messages: Message[];
   addToFavorites: (product: Product) => void;
-  removeFromFavorites: (productId: number) => void;
-  setProducts: (products: Product[]) => void;
-  setMessage: ( message: string) => void;
-  setSortIncreasing: (product: Product[]) => void;
-  setSortDecreasing: (product: Product[]) => void;
-  toggleFavorite: (productId:string) => void;
+  removeFromFavorites: ( productId: number ) => void;
+  setProducts: ( products: Product[] ) => void;
+  setMessage: ( message: Message) => void;
+  sendMessage: () => void;
+  setSortIncreasing: ( product: Product[] ) => void;
+  setSortDecreasing: ( product: Product[] ) => void;
+  toggleFavorite: ( productId:string ) => void;
   setFavorites: ( favorites: string[] ) => void;
+  setMessages: ( messages: Message ) => void;
 }
 
-const useStore = create<State>(
+
+const useStore =create<State>()(
   persist(
   (set) => ({
   products: [],
@@ -50,7 +53,7 @@ const useStore = create<State>(
       time: '18.03'
     },
     {
-      title: null,
+      title: '',
       message: 'Merhaba, yarın iş arkadaşlarımla bir akşam yemeğine çıkıyorum, şık parçalar giymek istiyorum.',
       sender: 'client',
       time: '18.05'

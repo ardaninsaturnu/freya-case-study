@@ -10,10 +10,10 @@ const AiChat = () => {
   useEffect(() => {
     if( messages?.length !== 2 && messages[ messages.length - 1 ].sender === 'client' ){
       setMessages({
-        title: null,
+        title: '',
         message: 'Sizi hemen bir bebek müşteri temsilcimizle görüştürüyorum :)',
         sender: 'bot',
-        time:  Date
+        time:  '20.09'
       })
     }
 

@@ -10,10 +10,10 @@ function MessageBox() {
     <div className="flex gap-2.5 max-w-full overflow-hidden">
       <div className=""></div>
       <Textarea className="w-full border border-solid border-[#D6D6D6] !bg-[#F7F7F7]" placeholder="Type your message here." onChange={(e) => setMessage({
-        title: null,
+        title: '',
         message: e.target.value,
         sender: 'client',
-        time: Date
+        time: '19.05'
 
       })} />
       <button className="w-10 h-10 bg-[#E14621] flex justify-center items-center rounded-[10px]" onClick={sendMessage}>
