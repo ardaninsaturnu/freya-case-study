@@ -9,7 +9,7 @@ const ProductCard : ({ item,page }: { item: Product, page: string }) => JSX.Elem
   return (
     <div className="w-[170px] gap-2.5" key={item.id}>
       <div className="border border-[0.5px] border-[#D6D6D6] rounded-[5px] h-[186px] relative">
-        <Image src={item?.images?.[0].includes('place') ? item?.category?.image : item?.images?.[0].replace(/^\["|"]$/g, '')  } alt={item?.title} fill className="object-cover object-center"/>
+        <Image src={item?.images?.[0].includes('place') ? 'https://i.imgur.com/qNOjJje.jpeg1' : item?.images?.[0].replace(/^\["|"]$/g, '')  } alt={item?.title} fill className="object-cover object-center"/>
         {
           page !== 'recommendations' && (
             <div className="absolute top-[10px] right-[10px] w-6 h-6 flex justify-center items-center bg-white bg-opacity-60 rounded-xl bg-blur/1px cursor-pointer">
