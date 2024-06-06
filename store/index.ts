@@ -60,21 +60,30 @@ const useStore = create<State>()(
         time: "",
       },
       setMessage: (content) => set(() => ({ message: content })),
+
       setProducts: (products) => set(() => ({ products })),
+
       sendMessage: () =>
         set((state) => ({
-          messages: [...state.messages, state.message],
+          messages: [...state.messages, state.message ],
         })),
-      setMessages: (message) => set(() => ({ message })),
+
+      setMessages: (content) => set((state) => ({
+        messages: [ ...state.messages, content ],
+        message: content
+      })),
+
       setSortIncreasing: (products) =>
         set(() => ({
           products: [...products].sort((a, b) => b.price - a.price),
         })),
+
       setSortDecreasing: (products) =>
         set(() => ({
           products: [...products].sort((a, b) => a.price - b.price),
         })),
       setFavorites: (favorites: string[]) => set(() => ({ favorites })),
+
       toggleFavorite: (productId: string) =>
         set((state) => {
           const isFavorite = state.favorites.includes(productId.toString());
@@ -84,10 +93,12 @@ const useStore = create<State>()(
               : [...state.favorites, productId.toString()],
           };
         }),
+
       addToFavorites: (product: Product) =>
         set((state) => ({
           favorites: [...state.favorites, product.id.toString()],
         })),
+
       removeFromFavorites: (productId: number) =>
         set((state) => ({
           favorites: state.favorites.filter(

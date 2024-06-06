@@ -5,10 +5,12 @@ import MessageBox from "@/app/(components)/MessageBox";
 import useStore from "@/store";
 
 const AiChat = () => {
-  let { messages, setMessages } = useStore( state => state );
+  let { messages, setMessages, message } = useStore( state => state );
+
+  console.log(messages[ messages.length - 1 ].sender,message,'hey')
 
   useEffect(() => {
-    if( messages?.length !== 2 && messages[ messages.length - 1 ].sender === 'client' ){
+    if( messages?.length > 2 && messages[ messages.length - 1 ].sender === 'client' ){
       setMessages({
         title: '',
         message: 'Sizi hemen bir bebek müşteri temsilcimizle görüştürüyorum :)',
